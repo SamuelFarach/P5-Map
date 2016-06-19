@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=utf-8 />
+    <title>Leaflet Label</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+    <style>
+      body { margin:0; padding:0; }
+      #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+  </head>
+  <body>
+  <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-label/v0.2.1/leaflet.label.css' rel='stylesheet' />
+    <div id='map'></div>
+    <script>
+    var lugares = [
+      ['Yoro',15.4,	-87.8,3349,	104718],
+      ['Jutiapa',14.35,	-89.85,	3349,	22014],
+      ['Respublika Bashkortostan',	56.24,	54.72,	351,	298],
+      ['Yucatan',	20.09,	-88.85,	121,	3159],
+      ['Province of Isabela',	16.75,	121.95,	830,	7138],
+      ['Departamento de Canelones',	-34.66,	-56.22,	232,	38933],
+      ['Provincia de Chiriqui',	8.45,	-82.83,	3, 9312],
+      ['Mato Grosso0',	-14.67,	-57.36,	1669,	78]
+    ];
+    var a = 2;
+      L.mapbox.accessToken = 'pk.eyJ1IjoiZmFyYWNoc2FtdWVsIiwiYSI6ImNpcG1iazBsMjAwMjV0Ym1jeXk3bmdoa20ifQ.ojfRyipv3CALf_DftAUIiQ';
+          var map = L.mapbox.map('map', 'mapbox.streets', {
+              center: [20, -70],
+              zoom: 3
+          });
+          for (i = 0; i < lugares.length; i++) {
+            L.marker([lugares[i][1], lugares[i][2]]).bindLabel('Región: '+lugares[i][0] +'<br />Elevación: '+ lugares[i][3]+'<br />Población: '+lugares[i][4]).addTo(map);
+          }
+
+          /**
+          L.marker([]).bindLabel().addTo(map);
+          L.marker([14.35,	-89.85]).bindLabel('Sweetgreen').addTo(map);
+          L.marker([38.917139, -77.031745]).bindLabel('Subway').addTo(map);
+          L.marker([38.915300, -77.031724]).bindLabel('Manny & Olga\'s Pizza').addTo(map);
+          L.marker([38.913388, -77.032351]).bindLabel('Crossfit DC').addTo(map);
+          L.marker([38.91371, -77.03590]).bindLabel('House of the Temple').addTo(map);
+          L.marker([38.914722, -77.034414]).bindLabel('St James Church').addTo(map);
+          L.marker([38.91680, -77.02889]).bindLabel('U Street Metro').addTo(map);
+          L.marker([38.914271, -77.028293]).bindLabel('The Coffee Bar').addTo(map);
+          */
+    </script>
+  </body>
+</html>
